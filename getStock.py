@@ -15,7 +15,7 @@ from stockapp.models import Company, StockInfo
 from django.db.models import Q
 
 def getStockcode():
-    stock_code = pd.read_excel('/home/DRF/kospicompany.xlsx',
+    stock_code = pd.read_excel('/home/ubuntu/MyAPI/kospicompany.xlsx',
                                sheet_name='Sheet1', converters={'종목코드':str})
     stock_code = stock_code[['종목코드', '종목명']]
     print(stock_code)
