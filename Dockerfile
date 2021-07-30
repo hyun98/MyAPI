@@ -2,9 +2,9 @@ FROM python:3.9.0
 
 RUN echo "run"
 
-COPY ./ /home/DRF/
+COPY ./ /home/MyAPI/
 
-WORKDIR /home/DRF/
+WORKDIR /home/MyAPI/
 
 RUN pip install -r requirements.txt
 

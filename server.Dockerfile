@@ -4,9 +4,9 @@ RUN echo "run"
 
 WORKDIR /home/
 
-RUN git clone https://github.com/hyun98/DRF.git
+RUN git clone https://github.com/hyun98/MyAPI.git
 
-WORKDIR /home/DRF/
+WORKDIR /home/MyAPI/
 
 RUN pip install -r requirements.txt
 
