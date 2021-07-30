@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+<script src = "{% static 'js/user.js' %}"></script>
+    <form action="/api/auth/register/" method="POST">
+        {% csrf_token %}
+        <div>
+            <h2 class="title">회원가입</h2>
+        </div>
+
+        <div class="input_itm itm-id">
+            <div class="itm-title">아이디:</div>
+            <input type="text" name="username" id="username" placeholder="ID" value="">
+            <input type="button" value="중복확인" onclick="idCheck()">
+            <span id="idcheck-result"></span>
+        </div>
+
+        <div class="input_itm itm-pwd">
+            <div class="itm-title">비밀번호::</div>
+            <input type="password" name="password" id="password" placeholder="PASSWORD" value="">
+            <span style="font-size: 0.7em">
+                * 비밀번호는 최소 8글자 이상 입력해 주셔야 합니다.
+            </span>
+        </div>
+
+        <div class="input_itm itm-pwdchk">
+            <div class="itm-title">비밀번호 확인:</div>
+            <input type="password" name="passwordcheck" id="passwordcheck" placeholder="PASSWORD CHECK" value="">
+        </div>
+
+        <input class="input_itm itm-create" type="button" value="회원가입" onclick="UserRegister()">
+        <input class="input_itm itm-cancel" type="button" value="취소" onclick="cancleUserRegister()">
+        
+    </form>
+</div>
+
+{% endblock %}
+
