@@ -8,6 +8,8 @@ RUN git clone https://github.com/hyun98/MyAPI.git
 
 WORKDIR /home/MyAPI/
 
+RUN python -m pip install --upgrade pip
+
 RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
