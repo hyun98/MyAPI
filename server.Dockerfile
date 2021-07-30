@@ -2,11 +2,11 @@ FROM python:3.9.0
 
 RUN echo "run"
 
-WORKDIR /home/
+WORKDIR /home/ubuntu/
 
 RUN git clone https://github.com/hyun98/MyAPI.git
 
-WORKDIR /home/MyAPI/
+WORKDIR /home/ubuntu/MyAPI/
 
 RUN python -m pip install --upgrade pip
 
