@@ -84,6 +84,6 @@ if __name__ == '__main__':
     for i in range(len(stocks)):
         code = stocks.loc[i][0]
         name = stocks.loc[i][1]
-        getDailyStockPrice(code, name, 365)
+        getDailyStockPrice(code, name, 2)
     
         
