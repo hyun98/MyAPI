@@ -1,6 +1,6 @@
 FROM python:3.9.0
 
-RUN echo "test1"
+RUN echo "test"
 
 WORKDIR /home/ubuntu/
 
@@ -19,5 +19,5 @@ EXPOSE 8000
 CMD ["bash", "-c", \
      "python manage.py collectstatic --noinput --settings=config.settings.prod&& \ 
       python manage.py migrate --settings=config.settings.prod&& \
-      gunicorn config.wsgi --bind unix:/tmp/gunicorn.sock --workers=3 --timeout=300 \
+      gunicorn config.wsgi --bind 0.0.0.0:8000 --workers=3 --timeout=300 \
       --env DJANGO_SETTINGS_MODULE=config.settings.prod"]
