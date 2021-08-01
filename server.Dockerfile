@@ -1,6 +1,6 @@
 FROM python:3.9.0
 
-RUN echo "user socket"
+RUN echo "test1"
 
 WORKDIR /home/ubuntu/
 
@@ -11,6 +11,8 @@ WORKDIR /home/ubuntu/MyAPI/
 RUN python -m pip install --upgrade pip
 
 RUN pip install -r requirements.txt
+
+RUN pip install gunicorn
 
 EXPOSE 8000
 
