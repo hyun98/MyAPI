@@ -1,5 +1,5 @@
 # Django + React + nginx + mariadb
-### (demo page)[3.35.43.53]
+### [demo page](http://3.35.43.53/)
 
 ## 1. api 사용
 1. Kospi 상장기업 최근 1년간의 주가 제공
