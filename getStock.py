@@ -65,10 +65,6 @@ def getDailyStockPrice(stockcode, name, count):
                         low=row['low'], high=row['high'], 
                         open=row['open'], close=row['close'], volume=row['volume'])
         stock.save()
-        # print("save!")
-        
-        # print(f"save {stock.company.name} : {stock.date}")
-        # print(f"save {row.date}!")
     
     # engine = create_engine("mariadb://root:"+"1234"+"@mariadb/django", encoding='utf-8')
     # print("find engine")

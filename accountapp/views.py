@@ -36,15 +36,15 @@ class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
-        data = {
-            'close': 'close_list',
-            'open': 'open_list',
-            'high': 'high_list',
-            'low': 'low_list',
-            'vol': 'vol_list',
-        }
-        return JsonResponse(data)
+        # print(request.data)
+        # data = {
+        #     'close': 'close_list',
+        #     'open': 'open_list',
+        #     'high': 'high_list',
+        #     'low': 'low_list',
+        #     'vol': 'vol_list',
+        # }
+        # return JsonResponse(data)
     
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
