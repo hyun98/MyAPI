@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.http.response import HttpResponse, JsonResponse
+
 from knox.models import AuthToken
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
@@ -36,12 +37,15 @@ class LoginAPI(generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         print(request.data)
-        return Response(
-            {
-                'test' : 'test',
-                'data' : 'data'
-            }
-        )
+        data = {
+            'close': 'close_list',
+            'open': 'open_list',
+            'high': 'high_list',
+            'low': 'low_list',
+            'vol': 'vol_list',
+        }
+        return JsonResponse(data)
+    
         # serializer = self.get_serializer(data=request.data)
         # serializer.is_valid(raise_exception=True)
         # user = serializer.validated_data
