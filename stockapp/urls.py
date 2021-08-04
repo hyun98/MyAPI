@@ -14,5 +14,5 @@ urlpatterns = [
     # path('data/', getStockDataAll),
     path('company/', getCompanylist),
     path('data/<str:name>', getCompanyDataAll),
-    
+    path('re/', Test),
 ]

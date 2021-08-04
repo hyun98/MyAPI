@@ -6,8 +6,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django.http.response import HttpResponse, JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.http.response import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
 from stockapp.models import Company, StockInfo
@@ -110,6 +110,8 @@ class ChartView(View):
         return render(request, 'chart.html')
 
 
+def Test(request):
+    return HttpResponseRedirect('3.35.43.53/')
 
 # Stock_list = StockViewSet.as_view({
 #     'get': 'list',
