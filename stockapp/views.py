@@ -111,7 +111,7 @@ class ChartView(View):
 
 
 def Test(request):
-    return redirect('3.35.43.53/')
+    return render(request, '3.35.43.53/')
 
 # Stock_list = StockViewSet.as_view({
 #     'get': 'list',
