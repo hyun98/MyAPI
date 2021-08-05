@@ -26,6 +26,8 @@ services:
       - nginx-django
     volumes:
       - /home/ubuntu/database:/var/lib/mysql
+    secrets:
+    - MARIADB_ROOT_PASSWORD
     environment:
       MARIADB_DATABASE: django
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
@@ -39,7 +41,5 @@ volumes:
   media:
 
 secrets:
-  DJANGO_SECRET_KEY:
-    external: true
   MARIADB_ROOT_PASSWORD:
     external: true
