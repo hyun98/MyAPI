@@ -2,6 +2,7 @@ from django.db import models
 
 class Company(models.Model):
     name = models.CharField(max_length=30)
+    companyico = models.ImageField(upload_to='company/', blank=True, null=True)
 
 
 class StockInfo(models.Model):

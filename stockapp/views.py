@@ -1,3 +1,4 @@
+from config.settings.base import MEDIA_ROOT
 from time import strptime, mktime
 
 from rest_framework.decorators import api_view
@@ -50,10 +51,13 @@ def getCompanylist(request):
     company = Company.objects.all()
     com_list = []
     for com in company:
-        com_list.append(com.name)
+        if not com.companyico:
+            com_list.append([com.name, "/media/unnamed.gif"])
+        else:
+            com_list.append([com.name, com.companyico.url])
     
     data = {
-        'name': com_list
+        'company': com_list
     }
     return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
 
