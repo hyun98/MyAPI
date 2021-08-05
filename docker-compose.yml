@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 services:
   nginx:
     image: nginx:1.21.1
@@ -10,16 +10,7 @@ services:
       - media:/data/media
     ports:
       - 80:80
-  djangoapi:
-    build:
-        context: .
-        dockerfile: ./server.Dockerfile
-    networks:
-      - nginx-django
-    volumes:
-      - ${PWD}:/home/ubuntu/MyAPI
-      - media:/home/ubuntu/MyAPI/media
-      - static:/home/ubuntu/MyAPI/static
+  
   mariadb:
     image: mariadb:10.5
     networks:
@@ -31,6 +22,19 @@ services:
     environment:
       MARIADB_DATABASE: django
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
+    
+  djangoapi:
+    build:
+        context: .
+        dockerfile: ./server.Dockerfile
+    networks:
+        - nginx-django
+    volumes:
+        - ${PWD}:/home/ubuntu/MyAPI
+        - media:/home/ubuntu/MyAPI/media
+        - static:/home/ubuntu/MyAPI/static
+    depends_on: 
+        - mariadb
 
 
 networks:
