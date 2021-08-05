@@ -5,9 +5,10 @@ services:
     networks:
       - nginx-django
     volumes:
-      - ${PWD}/nginx.conf:/etc/nginx/nginx.conf
+      - /home/ubuntu/MyAPI/nginx.conf:/etc/nginx/nginx.conf
       - static:/data/static
       - media:/data/media
+      - /home/ubuntu/ReactForDocker:/data/build
     ports:
       - 80:80
   
@@ -28,12 +29,9 @@ services:
     networks:
         - nginx-django
     volumes:
-        - ${PWD}:/home/ubuntu/MyAPI
+        - /home/ubuntu/MyAPI:/home/ubuntu/MyAPI
         - media:/home/ubuntu/MyAPI/media
-        - static:/home/ubuntu/MyAPI/static
-    depends_on: 
-        - mariadb
-
+        - static:/home/ubuntu/MyAPI/staticfiles
 
 networks:
   nginx-django:
