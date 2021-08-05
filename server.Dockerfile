@@ -6,7 +6,7 @@ COPY ./ /home/ubuntu/MyAPI
 
 WORKDIR /home/ubuntu/MyAPI/
 
-RUN apt-get upgrade
+RUN apt-get upgrade && pip3 install --upgrade pip
 
 RUN pip install -r requirements.txt
 
