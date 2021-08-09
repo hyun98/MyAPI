@@ -78,7 +78,9 @@ def Test(request):
     if request.method == 'POST':
         dist = request.POST['dist']
         context = {'dist': dist}
+        print("데이터를 받았습니다.")
     else:
         context = {'dist': 'no data'}
+        print("데이터를 받지 못했습니다.")
     
     return JsonResponse(context)
