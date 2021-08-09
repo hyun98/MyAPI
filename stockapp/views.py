@@ -76,7 +76,10 @@ class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'chart.html')
 
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
+@method_decorator(csrf_exempt)
 def Testk(request):
     if request.method == 'POST':
         dist = request.POST['dist']
@@ -90,7 +93,6 @@ def Testk(request):
         }
         print("데이터를 받지 못했습니다.")
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value=get_token(), max_age=10)
     
     return response
 
@@ -101,7 +103,6 @@ class TestView(View):
             'dist': 'no data',
         }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value=get_token(), max_age=10)
         return response
     
     def post(self, request):
