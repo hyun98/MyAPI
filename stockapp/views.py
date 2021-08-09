@@ -94,13 +94,19 @@ from django.views.decorators.csrf import csrf_exempt
 
 class TestView(View):
     def get(self, request):
+        m = request.method
+        print(m)
         context = {
-            'dist': 'no data'
+            'dist': 'no data',
+            'method': m,
         }
         return JsonResponse(context)
     
     def post(self, request):
+        m = request.method
+        print(m)
         context = {
-            'data': 'get data!'
+            'data': 'get data!',
+            'method': m,
         }
         return JsonResponse(context)
