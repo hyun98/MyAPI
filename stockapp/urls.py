@@ -12,4 +12,5 @@ urlpatterns = [
     path('company/', getCompanylist),
     path('data/<str:name>', getCompanyDataAll),
     path('testi/', TestView.as_view()),
+    path('testk/', Testk),
 ]
