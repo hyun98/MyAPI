@@ -82,13 +82,15 @@ def Testk(request):
         dist = request.POST['dist']
         context = {'dist': dist}
         print("데이터를 받았습니다.")
+        response = JsonResponse(context)
+        
     else:
         context = {
             'dist': 'no data',
         }
         print("데이터를 받지 못했습니다.")
-    
-    response = JsonResponse(context)
+        response = JsonResponse(context)
+        response.set_cookie('csrftoken', value=get_token, max_age=1, httponly=True)
     
     return response
 
@@ -99,7 +101,7 @@ class TestView(View):
             'dist': 'no data',
         }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value='tlqkf', max_age=600, httponly=True)
+        response.set_cookie('csrftoken', value='tlqkf', max_age=1, httponly=True)
         return response
     
     def post(self, request):
