@@ -73,7 +73,9 @@ class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'chart.html')
 
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def Testi(request):
     if request.method == 'POST':
         dist = request.POST['dist']
