@@ -75,4 +75,10 @@ class ChartView(View):
 
 
 def Test(request):
-    return HttpResponseRedirect('/')
+    if request.method == 'POST':
+        dist = request.POST['dist']
+        context = {'dist': dist}
+    else:
+        context = {'dist': 'no data'}
+    
+    return JsonResponse(context)

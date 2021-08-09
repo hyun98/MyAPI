@@ -11,5 +11,5 @@ urlpatterns = [
     # path('', include(router.urls)),
     path('company/', getCompanylist),
     path('data/<str:name>', getCompanyDataAll),
-    path('re/', Test),
+    path('test/', Test),
 ]
