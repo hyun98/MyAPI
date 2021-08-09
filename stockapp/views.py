@@ -98,7 +98,9 @@ class TestView(View):
         context = {
             'dist': 'no data',
         }
-        return JsonResponse(context)
+        response = JsonResponse(context)
+        response.set_cookie('csrftoken', "hello")
+        return response
     
     def post(self, request):
         if request.META['CONTENT_TYPE'] == "application/json":
