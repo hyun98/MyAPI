@@ -12,6 +12,7 @@ from rest_framework.views import APIView
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
+from django.middleware.csrf import get_token
 
 from stockapp.models import Company, StockInfo
 
@@ -75,9 +76,7 @@ class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'chart.html')
 
-from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
 def Testk(request):
     if request.method == 'POST':
         dist = request.POST['dist']
@@ -100,10 +99,9 @@ class TestView(View):
             'dist': 'no data',
         }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value="hello", max_age=600, httponly=True)
+        response.set_cookie('csrftoken', value=get_token(), max_age=600, httponly=True)
         return response
     
-    @csrf_exempt
     def post(self, request):
         if request.META['CONTENT_TYPE'] == "application/json":
             request = json.loads(request.body)
