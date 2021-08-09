@@ -113,5 +113,4 @@ class TestView(View):
                 'dist': 'post no data'
             }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value="hello", max_age=600, httponly=True)
         return response
