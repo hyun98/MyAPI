@@ -75,16 +75,32 @@ class ChartView(View):
 
 from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
-def Testi(request):
-    if request.method == 'POST':
-        dist = request.POST['dist']
-        context = {'dist': dist}
-        print("데이터를 받았습니다.")
-    else:
-        context = {
-            'dist': 'no data',
-        }
-        print("데이터를 받지 못했습니다.")
+# @csrf_exempt
+# def Testi(request):
+#     if request.method == 'POST':
+#         dist = request.POST['dist']
+#         context = {'dist': dist}
+#         print("데이터를 받았습니다.")
+#     else:
+#         context = {
+#             'dist': 'no data',
+#         }
+#         print("데이터를 받지 못했습니다.")
     
-    return JsonResponse(context)
+#     response = JsonResponse(context)
+#     response.set_cookie()
+    
+#     return response
+
+class TestView(View):
+    def get(self, request):
+        context = {
+            'dist': 'no data'
+        }
+        return JsonResponse(context)
+    
+    def post(self, request):
+        context = {
+            'data': 'get data!'
+        }
+        return JsonResponse(context)
