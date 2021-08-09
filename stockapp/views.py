@@ -1,5 +1,6 @@
 from config.settings.base import MEDIA_ROOT
 from time import strptime, mktime
+import json
 
 from rest_framework.decorators import api_view
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
@@ -94,19 +95,20 @@ from django.views.decorators.csrf import csrf_exempt
 
 class TestView(View):
     def get(self, request):
-        m = request.method
-        print(m)
         context = {
             'dist': 'no data',
-            'method': m,
         }
         return JsonResponse(context)
     
     def post(self, request):
-        m = request.method
-        print(m)
-        context = {
-            'data': 'get data!',
-            'method': m,
-        }
+        if request.META['CONTENT_TYPE'] == "application/json":
+            request = json.loads(request.body)
+            context = {
+                'dist': request['dist'],
+            }
+        else:
+            context = {
+                'dist': 'post no data'
+            }
+            
         return JsonResponse(context)
