@@ -110,5 +110,6 @@ class TestView(View):
             context = {
                 'dist': 'post no data'
             }
-            
-        return JsonResponse(context)
+        response = JsonResponse(context)
+        response.set_cookie()
+        return response
