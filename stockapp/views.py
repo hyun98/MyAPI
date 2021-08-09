@@ -90,7 +90,7 @@ def Testk(request):
         }
         print("데이터를 받지 못했습니다.")
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value=get_token(), max_age=1, httponly=True)
+        response.set_cookie('csrftoken', value='gettoken', max_age=10)
     
     return response
 
@@ -101,7 +101,7 @@ class TestView(View):
             'dist': 'no data',
         }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', value=get_token(), max_age=1, httponly=True)
+        response.set_cookie('csrftoken', value='posttoken', max_age=10)
         return response
     
     def post(self, request):
