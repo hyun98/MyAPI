@@ -80,7 +80,10 @@ def Test(request):
         context = {'dist': dist}
         print("데이터를 받았습니다.")
     else:
-        context = {'dist': 'no data'}
+        context = {
+            'dist': 'no data',
+            'hello': "hi",
+        }
         print("데이터를 받지 못했습니다.")
     
-    return HttpResponse("hello")
+    return JsonResponse(context)
