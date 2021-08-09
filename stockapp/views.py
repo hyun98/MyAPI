@@ -83,4 +83,4 @@ def Test(request):
         context = {'dist': 'no data'}
         print("데이터를 받지 못했습니다.")
     
-    return JsonResponse(context)
+    return HttpResponse(context)
