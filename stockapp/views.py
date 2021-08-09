@@ -74,7 +74,7 @@ class ChartView(View):
         return render(request, 'chart.html')
 
 
-def Test(request):
+def Testi(request):
     if request.method == 'POST':
         dist = request.POST['dist']
         context = {'dist': dist}
