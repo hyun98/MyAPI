@@ -1,3 +1,4 @@
+from abc import get_cache_token
 from config.settings.base import MEDIA_ROOT
 from time import strptime, mktime
 import json
@@ -93,6 +94,7 @@ from django.views.decorators.csrf import csrf_exempt
     
 #     return response
 
+
 class TestView(View):
     def get(self, request):
         context = {
@@ -102,6 +104,7 @@ class TestView(View):
         response.set_cookie('csrftoken', value="hello", max_age=600, httponly=True)
         return response
     
+    @csrf_exempt
     def post(self, request):
         if request.META['CONTENT_TYPE'] == "application/json":
             request = json.loads(request.body)
