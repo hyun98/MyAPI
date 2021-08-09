@@ -74,16 +74,16 @@ class ChartView(View):
         return render(request, 'chart.html')
 
 
-def Test(request):
-    if request.method == 'POST':
-        dist = request.POST['dist']
-        context = {'dist': dist}
-        print("데이터를 받았습니다.")
-    else:
-        context = {
-            'dist': 'no data',
-            'hello': "hi",
-        }
-        print("데이터를 받지 못했습니다.")
+def Testi(request):
+    # if request.method == 'POST':
+    #     dist = request.POST['dist']
+    #     context = {'dist': dist}
+    #     print("데이터를 받았습니다.")
+    # else:
+    context = {
+        'dist': 'no data',
+        'hello': "hi",
+    }
+    print("데이터를 받지 못했습니다.")
     
     return JsonResponse(context)
