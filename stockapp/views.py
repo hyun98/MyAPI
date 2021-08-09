@@ -99,7 +99,7 @@ class TestView(View):
             'dist': 'no data',
         }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', "hello")
+        response.set_cookie('csrftoken', value="hello", max_age=600, httponly=True)
         return response
     
     def post(self, request):
@@ -113,5 +113,5 @@ class TestView(View):
                 'dist': 'post no data'
             }
         response = JsonResponse(context)
-        response.set_cookie('csrftoken', "hello")
+        response.set_cookie('csrftoken', value="hello", max_age=600, httponly=True)
         return response
