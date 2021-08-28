@@ -25,7 +25,15 @@ services:
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
     
   djangoapi:
-    image: djangoapi:3.1
+    image: hyun0404woo/myapi
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        parallelism: 1
+        order: start-first
+        delay: 10s
+        failure_action: rollback
     networks:
         - nginx-django
     volumes:
