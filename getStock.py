@@ -33,16 +33,16 @@ def getDailyStockPrice(stockcode, name, count):
     df = data['@data'].str.split('|', expand=True)
     df.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
     
-    # print(df)
+    company = Company.objects.get_or_create(name=name)
 
-    company = Company.objects.filter(name__exact=name)
-    if(company.count() == 0):
-        print("create new company")
-        company = Company(name=name)
-        company.save()
-    else:
-        print("use resi company")
-        company = Company.objects.get(name=name)
+    # company = Company.objects.filter(name__exact=name)
+    # if(company.count() == 0):
+    #     print("create new company")
+    #     company = Company(name=name)
+    #     company.save()
+    # else:
+    #     print("use resi company")
+    #     company = Company.objects.get(name=name)
     
     for i in range(count):
         try:

@@ -8,6 +8,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import status
 
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
@@ -95,6 +96,13 @@ def Testk(request):
         response = JsonResponse(context)
     
     return response
+
+
+class UpdateTest(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({
+            "message": "Update Complete!!"
+            }, status=status.status.HTTP_200_OK)
 
 
 class TestView(View):

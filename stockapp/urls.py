@@ -13,4 +13,6 @@ urlpatterns = [
     path('data/<str:name>', getCompanyDataAll),
     path('testi/', TestView.as_view()),
     path('testk/', Testk),
+    path('update/', UpdateTest.as_view()),
+    
 ]
