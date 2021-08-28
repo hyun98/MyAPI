@@ -102,7 +102,7 @@ class UpdateTest(APIView):
     def get(self, request, *args, **kwargs):
         return Response({
             "message": "Update Complete!!"
-            }, status=status.status.HTTP_200_OK)
+            }, status=status.HTTP_200_OK)
 
 
 class TestView(View):
