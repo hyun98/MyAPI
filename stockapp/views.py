@@ -101,7 +101,7 @@ def Testk(request):
 class UpdateTest(APIView):
     def get(self, request, *args, **kwargs):
         return Response({
-            "message": "Update Complete!!"
+            "message": "Update Complete!! 업데이트 이렇게 하는건가?"
             }, status=status.HTTP_200_OK)
 
 
